@@ -17,3 +17,15 @@ class IntCode:
 
             instructions[loc] = value
         return instructions
+
+    @staticmethod
+    def find_inputs(input, output):
+        for noun in range(100):
+            for verb in range(100):
+                initial_input = input[:]
+                initial_input[1] = noun
+                initial_input[2] = verb
+                IntCode.process_code(initial_input)
+                if initial_input[0] == output:
+                    return noun, verb
+        return None, None
