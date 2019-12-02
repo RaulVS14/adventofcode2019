@@ -1,9 +1,16 @@
 from int_code import IntCode
+
+from utils.read_file import Utils
+
+
 def main():
-    read_code = IntCode().read_file("input.txt")
-    read_code.code_array[1] = 12
-    read_code.code_array[2] = 2
-    print(read_code.process_code(read_code.code_array))
+    file = Utils.read_file("input.txt")
+
+    int_code_program = file[0].split(',')
+    int_code_program[1] = 12
+    int_code_program[2] = 2
+    print(IntCode.process_code(int_code_program)[0])
+
 
 if __name__ == "__main__":
     main()

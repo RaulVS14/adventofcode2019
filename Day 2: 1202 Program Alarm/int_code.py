@@ -1,18 +1,10 @@
 class IntCode:
-    code_array = []
-
-    def read_file(self, input):
-        with open(input, 'r') as file:
-            for line in file:
-                self.code_array = line.strip().split(',')
-        return self
-
-    def process_code(self, instructions):
+    @staticmethod
+    def process_code(instructions):
         for i in range(0, len(instructions) - 4, 4):
             opcode = int(instructions[i])
             if opcode == 99:
                 break
-
             var1 = int(instructions[int(instructions[i + 1])])
             var2 = int(instructions[int(instructions[i + 2])])
             loc = int(instructions[i + 3])
@@ -25,4 +17,3 @@ class IntCode:
 
             instructions[loc] = value
         return instructions
-
