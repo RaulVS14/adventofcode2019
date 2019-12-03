@@ -12,6 +12,15 @@ class ManhattanDistance:
         return distance
 
     @staticmethod
+    def intersection_of_least_amount_of_steps(wire1, wire2):
+        path_wire1 = ManhattanDistance.trace_path(wire1)
+        path_wire2 = ManhattanDistance.trace_path(wire2)
+
+        intersections = set(path_wire1.keys()) & set(path_wire2.keys())
+        distance = min([path_wire1[steps] + path_wire2[steps] for steps in intersections])
+        return distance
+
+    @staticmethod
     def trace_path(wire):
         path = {}
         coords = (0, 0)

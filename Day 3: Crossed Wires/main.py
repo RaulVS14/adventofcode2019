@@ -8,6 +8,8 @@ def main():
     wire2 = file[1].split(',')
     print(ManhattanDistance.calculate_distance(wire1, wire2))
 
+    print(ManhattanDistance.intersection_of_least_amount_of_steps(wire1, wire2))
+
 
 if __name__ == "__main__":
     main()
