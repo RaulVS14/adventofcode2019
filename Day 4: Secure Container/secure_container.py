@@ -6,21 +6,38 @@ class SecureContainer:
         if length > 6:
             return False
 
-        pair = False
-        growing = True
-
+        pairs = {}
         for i in range(length - 1):
             if pass_as_list[i] == pass_as_list[i + 1]:
-                pair = True
-
+                if pass_as_list[i] not in pairs:
+                    pairs[pass_as_list[i]] = 1
+                pairs[pass_as_list[i + 1]] += 1
             if pass_as_list[i] > pass_as_list[i + 1]:
-                growing = False
-        return pair and growing
+                return False
+        return pairs
+
+    @staticmethod
+    def advance_criteria_check(password):
+        pairs = SecureContainer.criteria_check(password)
+        if pairs:
+            for key, value in pairs.items():
+                if value == 2:
+                    return True
+
+        return False
 
     @staticmethod
     def password_finder(start, end):
         result = []
         for i in range(start, end):
             if SecureContainer.criteria_check(i):
+                result.append(i)
+        return result
+
+    @staticmethod
+    def advanced_password_finder(start, end):
+        result = []
+        for i in range(start, end):
+            if SecureContainer.advance_criteria_check(i):
                 result.append(i)
         return result
