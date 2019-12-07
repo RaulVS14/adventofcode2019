@@ -9,3 +9,5 @@ Advent of Code 2019 assignment links:
 [Day 3: Crossed Wires](https://adventofcode.com/2019/day/3)
 
 [Day 4: Secure Container](https://adventofcode.com/2019/day/4)
+
+[Day 5: Sunny with a Chance of Asteroids](https://adventofcode.com/2019/day/5)
